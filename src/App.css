@@ -1,42 +1,41 @@
-#root{
+#root {
   max-width: 430px;
   height: 100vh;
 }
-body{
+body {
   background-color: aquamarine;
   border: 0px solid black;
   display: flex;
   flex-shrink: 0;
   flex-grow: 1;
 }
-div{
+div {
   border: 0px;
   padding: 0px;
   margin: 0px;
 }
-#main{
+#main {
   margin-top: auto;
 }
-#profile{
+#profile {
   max-width: 15%;
   border: 1px solid white;
 }
-.time{
+.time {
   color: green;
 }
 .bubble {
-  --r: 1em;  /* the radius */
+  --r: 1em; /* the radius */
   --t: 1.5em; /* the size of the tail */
-  
+
   max-width: 300px;
   padding: 1em;
   border-inline: var(--t) solid #0000;
-  border-radius: calc(var(--r) + var(--t))/var(--r);
-  mask: 
-    radial-gradient(100% 100% at var(--_p) 0,#0000 99%,#000 102%) 
-      var(--_p) 100%/var(--t) var(--t) no-repeat,
+  border-radius: calc(var(--r) + var(--t)) / var(--r);
+  mask: radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%)
+      var(--_p) 100% / var(--t) var(--t) no-repeat,
     linear-gradient(#000 0 0) padding-box;
-  background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
+  background: linear-gradient(135deg, #fe6d00, #1384c5) border-box;
   color: #fff;
 }
 .left {
@@ -49,7 +48,7 @@ div{
   border-bottom-right-radius: 0 0;
   place-self: end;
 }
-.microphone{
+.microphone {
   border-radius: 100%;
   border: white solid 1px;
   color: darkgreen;
