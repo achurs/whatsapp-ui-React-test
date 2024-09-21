@@ -1,12 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import { useEffect } from "react";
 function App() {
+  const [inputText, setInputText] = useState('');
   return (
     <>
       <div id="main" className="d-flex flex-column vh-100">
         <Header />
         <Body />
         <ChatWindow />
+        <Keyboard />
         <Footer />
       </div>
     </>
@@ -14,7 +17,12 @@ function App() {
 }
 
 function Header() {
-  const date = new Date();
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+  })
   let time_hour = date.getHours();
   let time_min = date.getMinutes();
   return (
@@ -71,6 +79,23 @@ function Body() {
   );
 }
 function ChatWindow() {
+  const [inputText, setInputText] = useState('');
+  const handleChange = (event) => {
+    if(event.key == 'Backspace'){
+      setInputText((prevInputText) => prevInputText.slice(0, -1));
+    }
+    else if(event.key.length === 1){
+      event.stopPropagation();
+      event.preventDefault();
+      setInputText((prevInputText) => prevInputText + event.key);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('keyup', handleChange);
+    return () => {
+      document.removeEventListener('keyup', handleChange);
+    };
+  }, []);
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -80,7 +105,7 @@ function ChatWindow() {
         >
           <div>
             <span className="fa-regular fa-face-smile m-2"></span>
-            input
+            {inputText}
           </div>
           <div>
             <span className="fa-solid fa-paperclip m-2"></span>
@@ -111,7 +136,6 @@ function Keyboard() {
           <span>🥲</span>
           <span>⭐</span>
         </div>
-        <div id="keyboard"></div>
       </div>
     </>
   );
