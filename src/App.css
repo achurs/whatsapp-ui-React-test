@@ -1,11 +1,21 @@
+#root{
+  max-width: 430px;
+  height: 100vh;
+}
 body{
   background-color: aquamarine;
   border: 0px solid black;
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 div{
   border: 0px;
   padding: 0px;
   margin: 0px;
+}
+#main{
+  margin-top: auto;
 }
 #profile{
   max-width: 15%;
@@ -38,4 +48,10 @@ div{
   --_p: 100%;
   border-bottom-right-radius: 0 0;
   place-self: end;
+}
+.microphone{
+  border-radius: 100%;
+  border: white solid 1px;
+  color: darkgreen;
+  background-color: lightgreen;
 }

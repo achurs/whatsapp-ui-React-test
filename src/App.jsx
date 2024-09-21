@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <div className='d-flex flex-column'>
+    <div id='main' className='d-flex flex-column vh-100'>
     <Header/>
     <Body/>
     <ChatWindow/>
-    <Keyboard/>
     <Footer/>
     </div>
     </>
@@ -50,7 +47,7 @@ function Body() {
       <span className='fa-solid fa-ellipsis-vertical m-2 h5'></span>
     </p>
     </div>
-    <div id='messages' className='d-flex flex-column'>
+    <div id='messages' className='d-flex flex-column flex-grow-1'>
     <div className="bubble left">Bro ipsum dolor sit amet gaper backside single track, manny Bike epic clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps</div>
     <div className="bubble right">Ok, Thank you</div>
     <div className="bubble left"> ut labore et dolore magna </div>
@@ -64,6 +61,22 @@ function Body() {
 function ChatWindow() {
   return(
     <>
+    <div className='d-flex justify-content-between'>
+    <div id='chat' className='d-flex h1 justify-content-between bg-dark text-light flex-grow-1 rounded-pill'>
+      <div>
+      <span className="fa-regular fa-face-smile m-2"></span>
+      input
+      </div>
+      <div>
+      <span className="fa-solid fa-paperclip m-2"></span>
+      <span className='fa-solid fa-indian-rupee-sign m-2'></span>
+      <span className='fa-solid fa-camera m-2'></span>
+      </div>
+    </div>
+    <div id='mic'>
+      <span className='microphone h1 m-2 fa-solid fa-microphone'></span>
+    </div>
+    </div>
     </>
   )
 }
@@ -71,8 +84,22 @@ function Keyboard() {
   return(
     <>
     <div className='d-flex bottom bg-dark text-light flex-column'>
-    <div id='emoji' className='d-flex flex-column'>fdf</div>
-    <div id='keyboard' className='d-flex flex-column'>dfgdf</div>
+    <div id='emoji' className='d-flex justify-content-around'>
+      <span>😂</span>
+      <span>❣️</span>
+      <span>😍</span>
+      <span>😘</span>
+      <span>🤣</span>
+      <span>😎</span>
+      <span>💀</span>
+      <span>❤️</span>
+      <span>🥲</span>
+      <span>⭐</span>
+
+    </div>
+    <div id='keyboard'>
+      
+    </div>
     </div>
     </>
   )
@@ -80,7 +107,7 @@ function Keyboard() {
 function Footer() {
   return (
     <>
-    <div className='h7 d-flex justify-content-between bg-dark fixed-bottom text-light p-4'>
+    <div id='footer' className='h7 d-flex justify-content-between bg-dark text-light p-4 bottom'>
       <span className='fa-solid fa-arrow-left mx-2'></span>
       <span className='fa-solid fa-house'></span>
       <span className='fa-solid fa-bars mx-3'></span>
