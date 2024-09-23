@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
 function App() {
-  const [inputText, setInputText] = useState('');
   return (
     <>
       <div id="main" className="d-flex flex-column vh-100">
@@ -27,7 +26,7 @@ function Header() {
   let time_min = date.getMinutes();
   return (
     <>
-      <div className="d-flex justify-content-between bg-dark top">
+      <div id="header" className="d-flex justify-content-between bg-dark sticky-top">
         <p className="text-light m-3 h4" id="time">
           {time_hour}:{time_min}
         </p>
@@ -47,7 +46,7 @@ function Body() {
     <>
       <div
         id="details"
-        className="d-flex justify-content-between bg-dark top text-light"
+        className="d-flex justify-content-between bg-dark sticky-top text-light"
       >
         <p className="m-2">
           <img
@@ -65,19 +64,15 @@ function Body() {
         </p>
       </div>
       <div id="messages" className="d-flex flex-column flex-grow-1">
-        <div className="bubble left">
-          Bro ipsum dolor sit amet gaper backside single track, manny Bike epic
-          clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps
-        </div>
-        <div className="bubble right">Ok, Thank you</div>
-        <div className="bubble left"> ut labore et dolore magna </div>
-        <div className="bubble right">👌</div>
-        <div className="bubble left">hello bro</div>
-        <div className="bubble right">poda patti</div>
+        <br />
+        <div className="bubble left">mundakkal shekara ninte samayam thirar ayii nee cheviyil nulikko</div>
+        <br></br>
+        <div className="bubble right">illa neela nine kollathe ente samayam theilla</div>
       </div>
     </>
   );
 }
+
 function ChatWindow() {
   const [inputText, setInputText] = useState('');
   const handleChange = (event) => {
@@ -86,7 +81,6 @@ function ChatWindow() {
     }
     else if(event.key.length === 1){
       event.stopPropagation();
-      event.preventDefault();
       setInputText((prevInputText) => prevInputText + event.key);
     }
   };
@@ -98,7 +92,7 @@ function ChatWindow() {
   }, []);
   return (
     <>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between sticky-bottom">
         <div
           id="chat"
           className="d-flex h1 justify-content-between bg-dark text-light flex-grow-1 rounded-pill"
@@ -123,7 +117,7 @@ function ChatWindow() {
 function Keyboard() {
   return (
     <>
-      <div className="d-flex bottom bg-dark text-light flex-column">
+      <div className="d-flex sticky-bottom bg-dark text-light flex-column">
         <div id="emoji" className="d-flex justify-content-around">
           <span>😂</span>
           <span>❣️</span>
@@ -145,7 +139,7 @@ function Footer() {
     <>
       <div
         id="footer"
-        className="h7 d-flex justify-content-between bg-dark text-light p-4 bottom"
+        className="h7 d-flex justify-content-between bg-dark text-light p-4 sticky-bottom"
       >
         <span className="fa-solid fa-arrow-left mx-2"></span>
         <span className="fa-solid fa-house"></span>
